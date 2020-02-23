@@ -1,5 +1,236 @@
-.header {
-	height: 201px;
-	background-image: url();
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+
+.sheet-bgwrapper {
+	background-image: url("https://github.com/EtoileLion/Roll20Scripts/blob/master/Cartomancy/nib/BG.png?raw=true");
+	padding: 5px 5px 25px 5px;
+}
+.sheet-header {
+	height: 100px;
+	background-image: url("https://github.com/EtoileLion/Roll20Scripts/blob/master/Cartomancy/nib/header.png?raw=true");
 	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+.sheet-col {
+	text-align: center;	
+}
+.sheet-maintable {
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.sheet-maintable .sheet-flex {
+	flex: 1;
+	text-align:center;
+}
+.sheet-maintable .sheet-col {
+	display: inline-block;
+    vertical-align: top;
+}
+.sheet-text,
+.sheet-maintable label {
+	font-family: "Cinzel";
+}
+.sheet-skillnum {
+	width: 3em;
+}
+.sheet-flexcontainer {
+	display: flex;
+}
+.sheet-flex {
+	flex: 1;
+}
+p,
+.sheet-name label,
+.sheet-habitat label {
+	font-family: "Cinzel";
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: inline-block;	
+	margin-bottom: 0px;
+	font-size: 20px;
+	color: #376a69;
+	width: auto;
+	margin-top: auto;
+	height: 20px;
+	font-weight: normal;
+}
+.sheet-row p,
+.sheet-col p,
+.sheet-maintable .sheet-flex p,
+.sheet-maintable .sheet-flex p {
+	border-bottom: 1px solid #376a69;
+	padding: 0px 8px 1px 8px;
+	margin-bottom: 4px;
+}
+
+.sheet-col {
+	height: 100%;
+}
+.sheet-name,
+.sheet-habitat {
+	display: flex;
+}
+.sheet-name input,
+.sheet-habitat input {
+	font-size: large;
+	flex: 1;
+}
+.sheet-center {
+	text-align:center;
+}
+.sheet-spacertop {
+	margin-top: 25px;
+}
+.sheet-fullwidth {
+	width: 100%;
+}
+.sheet-bold {
+	font-weight: bold;
+}
+
+input {
+	font-family: "Cinzel";
+	background: transparent;
+	border-bottom: 2px solid #376a69;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+
+.sheet-hide {
+	display: none;
+}
+.sheet-mtrack,
+.sheet-htrack {
+	margin-bottom: none;
+}
+.sheet-track ~ label {
+	width: 10px;
+	height: 10px;
+	background: #6c8484;
+	border: 1px solid #174a49;
+	display: inline-block;
+	text-align: center;
+	padding-right: 0px;
+	font-size: 8px;
+	padding-bottom: 0px;
+	margin-bottom: -3px;
+	line-height: 11px;
+}
+.sheet-lcol {
+	margin-right: 30px;
+}
+.sheet-rcol {
+	margin-left: 30px;
+}
+/* Trackers */
+.sheet-track[value="1"] ~ label[class*="1"],
+.sheet-track[value="2"] ~ label[class*="2"],
+.sheet-track[value="3"] ~ label[class*="3"],
+.sheet-track[value="4"] ~ label[class*="4"],
+.sheet-track[value="5"] ~ label[class*="5"],
+.sheet-track[value="6"] ~ label[class*="6"],
+.sheet-track[value="7"] ~ label[class*="7"],
+.sheet-track[value="8"] ~ label[class*="8"],
+.sheet-track[value="9"] ~ label[class*="9"],
+.sheet-track[value="a"] ~ label[class*="a"],
+.sheet-track[value="b"] ~ label[class*="b"],
+.sheet-track[value="c"] ~ label[class*="c"] {
+	background-color: #376a69;
+}
+.sheet-gtrackval[value="0"] ~ label[class*="0"],
+.sheet-gtrackval[value="1"] ~ label[class*="1"],
+.sheet-gtrackval[value="2"] ~ label[class*="2"],
+.sheet-gtrackval[value="3"] ~ label[class*="3"],
+.sheet-gtrackval[value="4"] ~ label[class*="4"],
+.sheet-gtrackval[value="5"] ~ label[class*="5"],
+.sheet-gtrackval[value="-1"] ~ label[class*="6"],
+.sheet-gtrackval[value="-2"] ~ label[class*="7"],
+.sheet-gtrackval[value="-3"] ~ label[class*="8"],
+.sheet-gtrackval[value="-4"] ~ label[class*="9"],
+.sheet-gtrackval[value="-5"] ~ label[class*="a"] {
+	color: darkgoldenrod;
+}
+.sheet-htrackval[value="1"] ~ label[class*="1"],
+.sheet-htrackval[value="2"] ~ label[class*="2"],
+.sheet-htrackval[value="3"] ~ label[class*="3"],
+.sheet-htrackval[value="4"] ~ label[class*="4"]{
+	color: crimson;
+}
+.sheet-mtrackval[value="1"] ~ label[class*="1"],
+.sheet-mtrackval[value="2"] ~ label[class*="2"],
+.sheet-mtrackval[value="3"] ~ label[class*="3"],
+.sheet-mtrackval[value="4"] ~ label[class*="4"]{
+	color: darkblue;
+}
+.sheet-mcol,.sheet-lcol {
+	display: inline;
+}
+.sheet-htrack {
+	text-align:right;
+}
+.sheet-gtrack {
+	text-align: center;
+}
+.sheet-mtrack:nth-of-type(1) {
+    transform: rotate(-20deg);
+    margin-top: 59px;
+    margin-left: -8px;	
+}
+.sheet-mtrack:nth-of-type(2) {
+	transform: rotate(-10deg);
+    margin-top: 28px;
+}
+.sheet-mtrack:nth-of-type(3) {
+	transform: rotate(10deg);
+    margin-top: 42px;
+}
+.sheet-mtrack:nth-of-type(4) {
+	transform: rotate(20deg);
+    margin-top: 30px;
+    margin-left: -11px;
+}
+.sheet-htrack:nth-of-type(1) {
+    transform: rotate(20deg);
+    margin-top: 59px;
+    margin-right: -8px;	
+}
+.sheet-htrack:nth-of-type(2) {
+	transform: rotate(10deg);
+    margin-top: 28px;
+}
+.sheet-htrack:nth-of-type(3) {
+	transform: rotate(-10deg);
+    margin-top: 42px;
+}
+.sheet-htrack:nth-of-type(4) {
+	transform: rotate(-20deg);
+    margin-top: 30px;
+    margin-right: -11px;
+}
+
+.sheet-emptybox {
+	background-image: url("https://github.com/EtoileLion/Roll20Scripts/blob/master/Cartomancy/nib/strike.png?raw=true") !important;
+}
+
+.sheet-stype[value="player"] ~ .sheet-journal,
+.sheet-stype[value="journal"] ~ .sheet-player {
+	display: none;
+}
+
+/* Journal CSS */
+
+.sheet-memory {
+	margin-bottom: 20px;
+}
+.sheet-memory textarea {
+	background: rgba(99,99,99,0.3);
+	border: 1px solid #376a69;
+}
+.sheet-noline {
+	border-bottom: none !important;
+	padding: 0px !important;
+	margin-bottom: 0px !important;
+	font-size: 15px;
 }

@@ -1,24 +1,195 @@
-<div class='bgwrapper'>
-	<input type='hidden' name='attr_sheettype' value='player'>
-	<div class='player'>
-		<div class='header'>
+<div class="bgwrapper">
+	<input type="hidden" name="attr_sheettype" value="player" class="stype">
+	<div class="player">
+		<div class="header">
 		</div>
-		<div class='row'>
-			<div class='name'>
+		<div class="2colrow">
+			<div class="col">
+				<div class="name">
+					<label for="attr_character_name">Name</label>
+					<input type="text" name="attr_character_name">
+				</div>
 			</div>
-			<div class='habitat'>
+			<div class="col">
+				<div class="habitat">
+					<label for="attr_habitat">Habitat</label>
+					<input type="text" name="attr_habitat">			
+				</div>
 			</div>
 		</div>
-		<div class='maintable'>
-			<div></div>
+		<div class="maintable">
+			<div class="flex">
+				<p>Memory Points</p>
+				<div>			
+				<input type="hidden" name="attr_memorypoints" value="0" class="track">
+				<label class="emptybox"><input type="radio" name="attr_memorypoints" class="hide" value="0"></label>				
+				<label class="123456789abc"><input type="radio" class="hide" value="1" name="attr_memorypoints"></label>
+				<label class="23456789abc"><input type="radio" class="hide" value="2" name="attr_memorypoints"></label>
+				<label class="3456789abc"><input type="radio" class="hide" value="3" name="attr_memorypoints"></label>
+				<label class="456789abc"><input type="radio" class="hide" value="4" name="attr_memorypoints"></label>				
+				<label class="56789abc"><input type="radio" class="hide" value="5" name="attr_memorypoints"></label>
+				<label class="6789abc"><input type="radio" class="hide" value="6" name="attr_memorypoints"></label>
+				<label class="789abc"><input type="radio" class="hide" value="7" name="attr_memorypoints"></label>
+				<label class="89abc"><input type="radio" class="hide" value="8" name="attr_memorypoints"></label>
+				<label class="9abc"><input type="radio" class="hide" value="9" name="attr_memorypoints"></label>
+				<label class="abc"><input type="radio" class="hide" value="a" name="attr_memorypoints"></label>
+				<label class="bc"><input type="radio" class="hide" value="b" name="attr_memorypoints"></label>
+				<label class="c"><input type="radio" class="hide" value="c" name="attr_memorypoints"></label>				
+				</div>
+			</div>
+			<div class="lcol col">	
+				<input type="hidden" name="attr_health" value="1" class="htrackval">
+				<label class="htrack 1"><input type="radio" class="hide" value="1" name="attr_health">OK</label>
+				<label class="htrack 2"><input type="radio" class="hide" value="2" name="attr_health">Beaten</label>
+				<label class="htrack 3"><input type="radio" class="hide" value="3" name="attr_health">Wounded</label>
+				<label class="htrack 4"><input type="radio" class="hide" value="4" name="attr_health">Dead</label>
+			</div>
+			<div class="mcol col">
+				<input type="hidden" name="attr_gravity" value="0" class="gtrackval">			
+				<label class="gtrack 5"><input type="radio" class="hide" value="5" name="attr_gravity">+2</label>
+				<label class="gtrack 4"><input type="radio" class="hide" value="4" name="attr_gravity">+2</label>
+				<label class="gtrack 3"><input type="radio" class="hide" value="3" name="attr_gravity">+1</label>
+				<label class="gtrack 2"><input type="radio" class="hide" value="2" name="attr_gravity">+1</label>
+				<label class="gtrack 1"><input type="radio" class="hide" value="1" name="attr_gravity">+0</label>				
+				<label class="gtrack 0"><input type="radio" class="hide" value="0" name="attr_gravity">Stable</label>
+				<label class="gtrack 6"><input type="radio" class="hide" value="-1" name="attr_gravity">-0</label>
+				<label class="gtrack 7"><input type="radio" class="hide" value="-2" name="attr_gravity">-1</label>
+				<label class="gtrack 8"><input type="radio" class="hide" value="-3" name="attr_gravity">-1</label>
+				<label class="gtrack 9"><input type="radio" class="hide" value="-4" name="attr_gravity">-2</label>
+				<label class="gtrack a"><input type="radio" class="hide" value="-5" name="attr_gravity">-2</label>			
+			</div>
+			<div class="rcol col">
+				<input type="hidden" name="attr_mental" value="1" class="mtrackval">			
+				<label class="mtrack 1"><input type="radio" class="hide" value="1" name="attr_mental">OK</label>
+				<label class="mtrack 2"><input type="radio" class="hide" value="2" name="attr_mental">Stressed</label>
+				<label class="mtrack 3"><input type="radio" class="hide" value="3" name="attr_mental">Shaken</label>
+				<label class="mtrack 4"><input type="radio" class="hide" value="4" name="attr_mental">Broken</label>
+			</div>
+			<div class="flex">
+							<p>Influence Points</p>
+				<div>
+				<input type="hidden" name="attr_influencepoints" value="0" class="track">
+				<label class="emptybox"><input type="radio" name="attr_influencepoints" class="hide" value="0"></label>
+				<label class="123456789abc"><input type="radio" class="hide" value="1" name="attr_influencepoints"></label>
+				<label class="23456789abc"><input type="radio" class="hide" value="2" name="attr_influencepoints"></label>
+				<label class="3456789abc"><input type="radio" class="hide" value="3" name="attr_influencepoints"></label>
+				<label class="456789abc"><input type="radio" class="hide" value="4" name="attr_influencepoints"></label>				
+				<label class="56789abc"><input type="radio" class="hide" value="5" name="attr_influencepoints"></label>
+				<label class="6789abc"><input type="radio" class="hide" value="6" name="attr_influencepoints"></label>
+				<label class="789abc"><input type="radio" class="hide" value="7" name="attr_influencepoints"></label>
+				<label class="89abc"><input type="radio" class="hide" value="8" name="attr_influencepoints"></label>
+				<label class="9abc"><input type="radio" class="hide" value="9" name="attr_influencepoints"></label>
+				<label class="abc"><input type="radio" class="hide" value="a" name="attr_influencepoints"></label>
+				<label class="bc"><input type="radio" class="hide" value="b" name="attr_influencepoints"></label>
+				<label class="c"><input type="radio" class="hide" value="c" name="attr_influencepoints"></label>						
+				</div>
+			</div>			
 		</div>
-		<div class='row'>
-			<div class='memorypoints'>
+		<div class="row center">
+			<p class="headertext">Symptoms</p>
+		</div>
+		<div class="3colrow">
+			<div class="col">
+			<input type="text" name="attr_symptom1">
+			<input type="number" name="attr_symptom1val" class="bold skillnum" min="0" max="3" value="0">
 			</div>
-			<div class='influencepoints'>
+			<div class="col">
+			<input type="text" name="attr_symptom2">
+			<input type="number" name="attr_symptom2val" class="bold skillnum" min="0" max="3" value="0">
 			</div>
+			<div class="col">
+			<input type="text" name="attr_symptom3">
+			<input type="number" name="attr_symptom3val" class="bold skillnum" min="0" max="3" value="0">
+			</div>
+		</div>
+		<div class="2colrow center spacertop">
+			<div class="col">
+			<p class="headertext">Belongings</p>
+			<fieldset class="repeating_belongings">
+				<input type="text" name="attr_belonging" class="fullwidth bold">
+			</fieldset>
+			</div>
+			<div class="col">
+				<p class="headertext">Skills</p>
+				<fieldset class="repeating_skills">
+					<div class="fullwidth flexcontainer">
+					<input type="number" name="attr_skillboost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_skill" class="flex bold">
+					</div>
+				</fieldset>
+			</div>
+			
+		</div>
+		<div class="row">
+			<p class="jhead">The Journal</p>
+		</div>
+		<div class="row center">
+			<button type="roll" value="!addpage">Add Journal Page</button>
 		</div>
 	</div>
-	<div class='journal'>
+	<div class="journal">
+		<div class="journalheader"></div>
+		<div class="2colrow">
+			<div class='col'>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory1"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory1boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory1skill" class="flex bold">
+				</div>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory2"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory2boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory2skill" class="flex bold">
+				</div>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory3"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory3boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory3skill" class="flex bold">
+				</div>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory4"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory4boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory4skill" class="flex bold">
+				</div>
+			</div>
+			<div class='col'>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory5"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory5boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory5skill" class="flex bold">
+				</div>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory6"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory6boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory6skill" class="flex bold">
+				</div>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory7"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory7boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory7skill" class="flex bold">
+				</div>
+				<div class="memory">
+					<p>I Remember...</p>
+					<textarea name="attr_memory8"></textarea>
+					<p class='noline'>Effect: </p>
+					<input type="number" name="attr_memory8boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
+					<input type="text" name="attr_memory8skill" class="flex bold">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
