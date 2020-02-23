@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
 
 .sheet-bgwrapper {
-	background-image: url("https://github.com/EtoileLion/Roll20Scripts/blob/master/Cartomancy/nib/BG.png?raw=true");
+	background-image: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/BG.png?raw=true");
 	padding: 5px 5px 25px 5px;
 }
 .sheet-header {
 	height: 100px;
-	background-image: url("https://github.com/EtoileLion/Roll20Scripts/blob/master/Cartomancy/nib/header.png?raw=true");
+	background-image: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/header.png?raw=true");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -211,7 +211,7 @@ input {
 }
 
 .sheet-emptybox {
-	background-image: url("https://github.com/EtoileLion/Roll20Scripts/blob/master/Cartomancy/nib/strike.png?raw=true") !important;
+	background-image: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/strike.png?raw=true") !important;
 }
 
 .sheet-stype[value="player"] ~ .sheet-journal,
@@ -233,4 +233,11 @@ input {
 	padding: 0px !important;
 	margin-bottom: 0px !important;
 	font-size: 15px;
+}
+.sheet-journalheader {
+	height: 81px;
+	background-image: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/journalheader.png?raw=true");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
