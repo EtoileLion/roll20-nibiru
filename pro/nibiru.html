@@ -131,7 +131,7 @@
 			</div>
 			
 		</div>
-		<div class="row center">			
+		<div class="row center spacertop">			
 			<p class="jhead">The Journal</p>
 		</div>
 		<div class="row center">
@@ -256,6 +256,56 @@
 				<span class='rolltemplate-ruleofthrees'>Rule of Threes</span>
 				{{/rollGreater() ones 2}}
 			{{/rollTotal() fours 0}}
+			</td>
+		</tr>
+	</table>
+</rolltemplate>
+<rolltemplate class="sheet-rolltemplate-nibirucontest">
+	<table class='sheet-rolltemplate-normal'>
+			<tr>
+			<td class='sheet-rolltemplate-nameline'>
+			  {{name}}
+			</td>
+		</tr>
+		<tr>
+			<td class='sheet-rolltemplate-byline'>
+			 Base Dice{{#gravity}}{{gravity}}Gravity{{/gravity}}{{#modifier}}{{modifier}}Modifier{{/modifier}}
+			</td>
+		</tr>
+		<tr>
+			<td class='sheet-rolltemplate-dieline'>
+			  {{dierow}}
+			</td>
+		</tr>
+		<tr>
+			<td class='rolltemplate-resultline'>
+				{{total}}
+			</td>
+		</tr>
+		{{#ruleofthrees}}
+		<tr>
+			<td class='rolltemplate-resultline'>
+				<span class='rolltemplate-ruleofthrees'>Rule of Threes</span>
+			</td>
+		</tr>		
+		{{/ruleofthrees}}
+	</table>
+</rolltemplate>
+<rolltemplate class="sheet-rolltemplate-nibiruspecial">
+	<table class='sheet-rolltemplate-normal'>
+			<tr>
+			<td class='sheet-rolltemplate-nameline'>
+			  {{name}}
+			</td>
+		</tr>
+		<tr>
+			<td class='sheet-rolltemplate-dieline'>
+			  {{dierow}}
+			</td>
+		</tr>
+		<tr>
+			<td class='rolltemplate-resultline'>
+				{{total}}
 			</td>
 		</tr>
 	</table>

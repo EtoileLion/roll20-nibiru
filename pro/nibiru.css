@@ -277,54 +277,87 @@ input {
   background-image: linear-gradient(transparent, transparent calc(4ch - 1px), #376a69 0px);
   background-size: 100% 4ch;
 }
-
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-nameline {
-	font-family: "Cinzel Decorative";
-	font-weight: bold;	
+.sheet-rolltemplate-normal {
+	width: 100%;
+	background-image: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/BG.png?raw=true");
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-byline {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-nameline,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-nameline,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-nameline {
+	font-family: "Cinzel Decorative";
+	font-weight: bold;
+	background-color: #376a69;
+	color: white;
+	padding: 3px 0px 3px 2px;
+}
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-byline,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-byline {
 	font-family: "Cinzel";
 	font-size: xx-small;	
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline {
 	text-align: center;
 	font-weight: bold;	
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline div {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline div,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline div,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline div {
 	width: 25px;
 	height: 25px;
 	display: inline-block;
 	padding-top: 5px;
 	background-repeat: no-repeat;
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-critdie {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-critdie,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline .sheet-critdie,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline .sheet-critdie {
     background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d4c.png?raw=true") !important;
-	background-size: contain;
-	color: #286;
+	background-size: contain !important;
+	color: #162;
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-cfaildie {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-cfaildie,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline .sheet-cfaildie,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline .sheet-cfaildie {
     background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d1f.png?raw=true") !important;
-	background-size: contain;
-	color: #730505;
+	background-size: contain !important;
+	color: #630505;
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die1 {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die1,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline .sheet-die1,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline .sheet-die1 {
 	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d1.png?raw=true");
 	background-size: contain;
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die2 {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die2,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline .sheet-die2,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline .sheet-die2 {
 	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d2.png?raw=true");
 	background-size: contain;
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die3 {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die3,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline .sheet-die3,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline .sheet-die3 {
 	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d3.png?raw=true");
 	background-size: contain;
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die4 {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die4,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline .sheet-die4,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-dieline .sheet-die4 {
 	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d4.png?raw=true");
 	background-size: contain;
 }
-.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-resultline {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-resultline,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-resultline,
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-resultline {
 	text-align: center;
+}
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-resultline,
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-resultline {
+	font-weight: bold;
+	font-size: large;
+	font-family: "Cinzel";
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-resultline .sheet-rolltemplate-resultpass {
 	color: #247305;

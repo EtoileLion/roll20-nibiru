@@ -4,7 +4,6 @@ on("chat:message", function(msg) {
 		let options = msgtext.split("|");
 		log(options);
 		if(options.length < 3) { sendChat("Nibiru Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. Expected 3 values, received "+msgtext+" Please report this error to EtoileLion."); return; }
-		if(options[1] == undefined) { options[1] = "0"; }
 		options[1] = Math.sign(parseInt(options[1]))*Math.floor(parseInt(Math.abs(options[1]))/2);
 		options[2] = parseInt(options[2]);
 		log(options);
@@ -29,6 +28,63 @@ on("chat:message", function(msg) {
 		sendChat(msg.who,output);
 	}
 });
+
+on("chat:message", function(msg) {
+	if(msg.type === "api" && msg.content.indexOf("!nibcroll") !== -1) {
+		let msgtext = msg.content.slice(msg.content.indexOf(" ")+1).trim();
+		let options = msgtext.split("|");
+		log(options);
+		if(options.length < 3) { sendChat("Nibiru Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. Expected 3 values, received "+msgtext+" Please report this error to EtoileLion."); return; }
+		options[1] = Math.sign(parseInt(options[1]))*Math.floor(parseInt(Math.abs(options[1]))/2);
+		options[2] = parseInt(options[2]);
+		log(options);
+		let fours = 0;
+		let ones = 0;
+		let toroll = 3+options[1]+options[2];
+		let results = [];
+		while(toroll > 0) {
+			let dievalue = randomInteger(4);
+			results.push(dievalue);
+			if (dievalue == 1) {
+				ones++;
+			} else if (dievalue == 4) {
+				fours++;
+			}
+			toroll--;
+		}
+		let total = results.reduce((a,b) => a+b,0);
+		log(results);
+		results = results.map((dievalue)=> "<div class=\"sheet-die"+dievalue+"\">"+dievalue+"</div>");
+		log(results);
+		let output = "&{template:nibirucontest} {{name="+options[0]+"}} {{dierow="+results.join("+")+"}} {{total="+total+"}} "+(Math.sign(options[1]) ? "{{gravity="+((options[1] > 0) ? "+" : "-")+"}} " : "")+(Math.sign(options[2]) ? "{{modifier="+((options[2] > 0) ? "+" : "-")+"}} " : "")+((fours >= 3 || (fours == 0 && ones >= 3))? " {{ruleofthrees}}":"");
+		sendChat(msg.who,output);
+	}
+});
+
+on("chat:message", function(msg) {
+	if(msg.type === "api" && msg.content.indexOf("!nibsroll") !== -1) {
+		let msgtext = msg.content.slice(msg.content.indexOf(" ")+1).trim();
+		let options = msgtext.split("|");
+		log(options);
+		if(options.length < 2) { sendChat("Nibiru Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. Expected 2 values, received "+msgtext+" Please report this error to EtoileLion."); return; }
+		options[1] = parseInt(options[1]);
+		log(options);
+		let fours = 0;
+		let ones = 0;
+		let toroll = options[1];
+		let results = [];
+		while(toroll > 0) {
+			let dievalue = randomInteger(4);
+			results.push(dievalue);
+			toroll--;
+		}
+		let total = results.reduce((a,b) => a+b,0);
+		results = results.map((dievalue)=> "<div class=\"sheet-die"+dievalue+"\">"+dievalue+"</div>");
+		let output = "&{template:nibiruspecial} {{name="+options[0]+"}} {{dierow="+results.join(",")+"}} {{total="+total+"}}";
+		sendChat(msg.who,output);
+	}
+});
+
 
 on("chat:message", function(msg) {
 	if(msg.type === "api" && msg.content.indexOf("!addpage") !== -1) {
