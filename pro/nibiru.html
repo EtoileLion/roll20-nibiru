@@ -85,7 +85,18 @@
 				</div>
 			</div>			
 		</div>
-		<div class="row center">
+		<div class="3colrow">
+			<div class="col">
+				<button type="roll" value="!nibroll @{character_name}|@{gravity}|?{Dice Pool Modifier|0}" name="roll_NormalRoll">Normal Roll</button>
+			</div>
+			<div class="col">
+				<button type="roll" value="!nibcroll @{character_name}|@{gravity}|?{Dice Pool Modifier|0}" name="roll_ContestedRoll">Contested Roll</button>				
+			</div>
+			<div class="col">
+				<button type="roll" value="!nibsroll @{character_name}|?{Dice Pool|2}" name="roll_SpecialRoll">Special Roll</button>
+			</div>
+		</div>
+		<div class="row center spacertop">
 			<p class="headertext">Symptoms</p>
 		</div>
 		<div class="3colrow">
@@ -120,11 +131,11 @@
 			</div>
 			
 		</div>
-		<div class="row">
+		<div class="row center">			
 			<p class="jhead">The Journal</p>
 		</div>
 		<div class="row center">
-			<button type="roll" value="!addpage">Add Journal Page</button>
+			<button type="roll" value="!addpage @{character_id}" name="roll_addPage">Add Journal Page</button>
 		</div>
 	</div>
 	<div class="journal">
@@ -132,64 +143,120 @@
 		<div class="2colrow">
 			<div class='col'>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory1"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory1boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory1skill" class="flex bold">
 				</div>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory2"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory2boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory2skill" class="flex bold">
 				</div>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory3"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory3boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory3skill" class="flex bold">
 				</div>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory4"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory4boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory4skill" class="flex bold">
 				</div>
 			</div>
 			<div class='col'>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory5"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory5boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory5skill" class="flex bold">
 				</div>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory6"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory6boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory6skill" class="flex bold">
 				</div>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory7"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory7boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory7skill" class="flex bold">
 				</div>
 				<div class="memory">
-					<p>I Remember...</p>
+					<p class='noline'>I Remember...</p>
 					<textarea name="attr_memory8"></textarea>
-					<p class='noline'>Effect: </p>
+					<p class='noline smaller'>Effect: </p>
 					<input type="number" name="attr_memory8boost" class="bold skillnum" min="-3" max="3" value="0"> <span class="text">to</span>
 					<input type="text" name="attr_memory8skill" class="flex bold">
 				</div>
 			</div>
 		</div>
+		<div class="row center">
+			<div class="revelation">
+				<p>Revelation of the </p>
+				<input type="text" name="attr_revelation">
+				<textarea name="attr_revtext">
+				</textarea>
+			</div>
+		</div>
 	</div>
 </div>
+<rolltemplate class="sheet-rolltemplate-nibirunormal">
+	<table class='sheet-rolltemplate-normal'>
+			<tr>
+			<td class='sheet-rolltemplate-nameline'>
+			  {{name}}
+			</td>
+		</tr>
+		<tr>
+			<td class='sheet-rolltemplate-byline'>
+			 Base Dice{{#gravity}}{{gravity}}Gravity{{/gravity}}{{#modifier}}{{modifier}}Modifier{{/modifier}}
+			</td>
+		</tr>
+		<tr>
+			<td class='sheet-rolltemplate-dieline'>
+			  {{dierow}}
+			</td>
+		</tr>
+		<tr>
+			<td class='rolltemplate-resultline'>
+			{{#rollTotal() fours 1}}
+				<span class='rolltemplate-resultpass'>Success!</span>
+			{{/rollTotal() fours 1}}
+			{{#rollTotal() fours 2}}
+				<span class='rolltemplate-resultpass'>Savvy Success</span>
+			{{/rollTotal() fours 2}}
+			{{#rollGreater() fours 2}}
+				<span class='rolltemplate-resultpass'>Critical Success</span><br>
+				<span class='rolltemplate-ruleofthrees'>Rule of Threes</span>
+			{{/rollGreater() fours 2}}
+			{{#rollTotal() fours 0}}
+				{{#rollTotal() ones 0}}
+				<span class='rolltemplate-resultneutral'>Fail!</span>
+				{{/rollTotal() ones 0}}
+				{{#rollTotal() ones 1}}
+				<span class='rolltemplate-resultfail'>Fumble</span>
+				{{/rollTotal() ones 1}}
+				{{#rollTotal() ones 2}}
+				<span class='rolltemplate-resultfail'>Major Failure</span>
+				{{/rollTotal() ones 2}}
+				{{#rollGreater() ones 2}}
+				<span class='rolltemplate-resultcritfail'>Critical Failure</span><br>
+				<span class='rolltemplate-ruleofthrees'>Rule of Threes</span>
+				{{/rollGreater() ones 2}}
+			{{/rollTotal() fours 0}}
+			</td>
+		</tr>
+	</table>
+</rolltemplate>
