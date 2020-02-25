@@ -294,31 +294,33 @@ input {
 	width: 25px;
 	height: 25px;
 	display: inline-block;
+	padding-top: 5px;
+	background-repeat: no-repeat;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-critdie {
-    background: url() !important;
+    background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d4c.png?raw=true") !important;
 	background-size: contain;
 	color: #286;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-cfaildie {
-    background: url() !important;
+    background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d1f.png?raw=true") !important;
 	background-size: contain;
 	color: #730505;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die1 {
-	background: url();
+	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d1.png?raw=true");
 	background-size: contain;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die2 {
-	background: url();
+	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d2.png?raw=true");
 	background-size: contain;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die3 {
-	background: url();
+	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d3.png?raw=true");
 	background-size: contain;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline .sheet-die4 {
-	background: url();
+	background: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/d4.png?raw=true");
 	background-size: contain;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-resultline {
