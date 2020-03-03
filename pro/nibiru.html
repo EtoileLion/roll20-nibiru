@@ -87,13 +87,13 @@
 		</div>
 		<div class="3colrow">
 			<div class="col">
-				<button type="roll" value="!nibroll @{character_name}|@{gravity}|?{Dice Pool Modifier|0}" name="roll_NormalRoll">Normal Roll</button>
+				<button class='rollbuttons' type="roll" value="!nibroll @{character_name}|@{gravity}|?{Dice Pool Modifier|0}" name="roll_NormalRoll">Normal </button>
 			</div>
 			<div class="col">
-				<button type="roll" value="!nibcroll @{character_name}|@{gravity}|?{Dice Pool Modifier|0}" name="roll_ContestedRoll">Contested Roll</button>				
+				<button class='rollbuttons' type="roll" value="!nibcroll @{character_name}|@{gravity}|?{Dice Pool Modifier|0}" name="roll_ContestedRoll">Contested</button>				
 			</div>
 			<div class="col">
-				<button type="roll" value="!nibsroll @{character_name}|?{Dice Pool|2}" name="roll_SpecialRoll">Special Roll</button>
+				<button class='rollbuttons' type="roll" value="!nibsroll @{character_name}|?{Dice Pool|2}" name="roll_SpecialRoll">Special</button>
 			</div>
 		</div>
 		<div class="row center spacertop">
@@ -135,7 +135,7 @@
 			<p class="jhead">The Journal</p>
 		</div>
 		<div class="row center">
-			<button type="roll" value="!addpage @{character_id}" name="roll_addPage">Add Journal Page</button>
+			<button type="roll" class='addbutton rollbuttons' value="!addpage @{character_id}" name="roll_addPage">Add Journal Page</button>
 		</div>
 	</div>
 	<div class="journal">
@@ -210,6 +210,14 @@
 				</textarea>
 			</div>
 		</div>
+		<div class="2colrow center">			
+			<div class="col">
+				<button type='roll' value="!givepage @{character_id}" class="rollbuttons transferbutton">Transfer Memories</button>
+			</div>
+			<div class="col">
+				<button type='roll' value="!delpage @{character_id}" class="rollbuttons deletebutton">Delete Memories</button>
+			</div>			
+		</div>
 	</div>
 </div>
 <rolltemplate class="sheet-rolltemplate-nibirunormal">
@@ -219,6 +227,11 @@
 			  {{name}}
 			</td>
 		</tr>
+		<tr>
+			<td class='sheet-rolltemplate-rollline'>
+			  Normal Roll
+			</td>
+		</tr>				
 		<tr>
 			<td class='sheet-rolltemplate-byline'>
 			 Base Dice{{#gravity}}{{gravity}}Gravity{{/gravity}}{{#modifier}}{{modifier}}Modifier{{/modifier}}
@@ -267,6 +280,11 @@
 			  {{name}}
 			</td>
 		</tr>
+			<tr>
+			<td class='sheet-rolltemplate-rollline'>
+			  Contested Roll
+			</td>
+		</tr>		
 		<tr>
 			<td class='sheet-rolltemplate-byline'>
 			 Base Dice{{#gravity}}{{gravity}}Gravity{{/gravity}}{{#modifier}}{{modifier}}Modifier{{/modifier}}
@@ -299,6 +317,11 @@
 			</td>
 		</tr>
 		<tr>
+			<td class='sheet-rolltemplate-rollline'>
+			  Special Roll
+			</td>
+		</tr>		
+		<tr>
 			<td class='sheet-rolltemplate-dieline'>
 			  {{dierow}}
 			</td>
@@ -309,4 +332,19 @@
 			</td>
 		</tr>
 	</table>
+</rolltemplate>
+<rolltemplate class="sheet-rolltemplate-quote">
+	<table>
+			<tr>
+			<td class='sheet-rolltemplate-quoteline'>
+			  {{quote}}
+			</td>
+		</tr>
+		{{#by}}
+		<tr>
+			<td class='sheet-rolltemplate-byline'>
+			  {{by}}
+			</td>
+		</tr>
+		{{/by}}
 </rolltemplate>

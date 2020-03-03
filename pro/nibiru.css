@@ -89,6 +89,19 @@ p,
 .sheet-bold {
 	font-weight: bold;
 }
+.sheet-transferbutton:before,
+.sheet-deletebutton:before,
+.sheet-addbutton:before {
+	content: "" !important;
+}
+.repcontrol_add,
+.repcontrol_edit,
+.sheet-addbutton,
+.sheet-rollbuttons {
+	background: url("http://api.thumbr.it/whitenoise-358x370.png?background=9dcfcdff&noise=146951&density=42&opacity=14");
+    font-family: "Cinzel";
+    border: 1px solid #376a69;
+}
 
 input {
 	font-family: "Cinzel";
@@ -219,6 +232,9 @@ input {
 .sheet-stype[value="journal"] ~ .sheet-player {
 	display: none;
 }
+.sheet-xsmall {
+	font-size: xx-small;
+}
 
 /* Journal CSS */
 
@@ -277,9 +293,19 @@ input {
   background-image: linear-gradient(transparent, transparent calc(4ch - 1px), #376a69 0px);
   background-size: 100% 4ch;
 }
-.sheet-rolltemplate-normal {
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-normal {
 	width: 100%;
-	background-image: url("https://github.com/EtoileLion/roll20-nibiru/blob/master/pro/images/BG.png?raw=true");
+	background-image: url("http://api.thumbr.it/whitenoise-358x370.png?background=9dcfcfff&noise=146951&density=42&opacity=14");
+}
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-normal {
+	width: 100%;
+	/*background-image: url("http://api.thumbr.it/whitenoise-361x370.png?background=9dcfcff&noise=ff0000&density=42&opacity=24");*/	
+	background-image: url("http://api.thumbr.it/whitenoise-358x370.png?background=9dcfcfff&noise=146951&density=42&opacity=14");
+}
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-normal {
+	width: 100%;
+	background-image: url("http://api.thumbr.it/whitenoise-358x370.png?background=9dcfcfff&noise=146951&density=42&opacity=14");
+	/*background-image: url("http://api.thumbr.it/whitenoise-361x370.png?background=9dcfcff&noise=fff200&density=33&opacity=24");*/
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-nameline,
 .sheet-rolltemplate-nibirucontest .sheet-rolltemplate-nameline,
@@ -288,12 +314,40 @@ input {
 	font-weight: bold;
 	background-color: #376a69;
 	color: white;
-	padding: 3px 0px 3px 2px;
+	padding: 3px 0px 3px 4px;
+}
+.sheet-rolltemplate-nibirunormal .sheet-rolltemplate-rollline {
+	text-align: center;
+	font-family: "Cinzel Decorative";
+	font-size: x-small;
+	padding: 0px 3px;
+	background-color: midnightblue;
+	color: white;
+}
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-rollline {
+	text-align: center;
+	font-family: "Cinzel Decorative";
+	font-size: x-small;
+	padding: 0px 3px;
+	background-color: maroon;
+	color: white;
+}
+.sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-rollline {
+	text-align: center;
+	font-family: "Cinzel Decorative";
+	font-size: x-small;
+	padding: 0px 3px;
+	background-color: darkgoldenrod;
+	color: white;
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-byline,
 .sheet-rolltemplate-nibirucontest .sheet-rolltemplate-byline {
 	font-family: "Cinzel";
 	font-size: xx-small;	
+	padding-left: 3px;
+}
+.sheet-rolltemplate-nibirucontest .sheet-rolltemplate-byline {
+	/*color: white;*/
 }
 .sheet-rolltemplate-nibirunormal .sheet-rolltemplate-dieline,
 .sheet-rolltemplate-nibirucontest .sheet-rolltemplate-dieline,
@@ -352,6 +406,7 @@ input {
 .sheet-rolltemplate-nibirucontest .sheet-rolltemplate-resultline,
 .sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-resultline {
 	text-align: center;
+	padding-bottom: 3px;
 }
 .sheet-rolltemplate-nibiruspecial .sheet-rolltemplate-resultline,
 .sheet-rolltemplate-nibirucontest .sheet-rolltemplate-resultline {
@@ -370,4 +425,16 @@ input {
 	font-size: large;
 	color: #286;
 	font-weight: bold;
+}
+.sheet-rolltemplate-quote .sheet-rolltemplate-quoteline {
+	font-family: "Cinzel Decorative";
+	color: #376a69;
+	font-weight: bold;
+	font-size: small;
+}
+.sheet-rolltemplate-quote .sheet-rolltemplate-byline {
+	text-align: right;
+	font-size: 0.6rem;
+	font-family: "Cinzel Decorative";
+	color: #333;
 }

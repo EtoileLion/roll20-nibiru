@@ -116,3 +116,104 @@ on("chat:message", function(msg) {
 		  });
 	}
 });
+
+on("chat:message", function(msg) {
+	if(msg.type === "api" && msg.content.indexOf("!delpage") !== -1) {
+		let msgtext = msg.content.slice(msg.content.indexOf(" ")+1).trim();
+		let options = msgtext.split("|");
+		log(options[1]);
+		if(options.length < 2) { sendChat("Nibiru","/w "+msg.who.replace(" (GM)","")+" To confirm your loss of memory, close the memory page, and then click here. [Really Delete Memories](!delpage "+msgtext+"|1)"); } else {
+		//Select Character
+		let pagetodel = getObj("character",options[0]);
+		//Kujio Proofing.
+		if(pagetodel == undefined) { return; }
+		let [ownername,pageno] = pagetodel.get("name").split(/\sJournal\sPage\s/);
+		let allthings = findObjs({_type:"character","controlledby":pagetodel.get("controlledby")});
+		let character = allthings.filter((x) => x.get("name") == ownername)[0];
+		log(ownername);
+		log(pageno);
+		log(character);			
+		//Adjust character page number
+		let mempages = findObjs({_type:"attribute",_characterid:character.get("_id"),"name":"memorypages"})[0];
+		mempages.set("current",parseInt(mempages.get("current"))-1);
+		log(mempages);
+		//Renumber Pages
+		let pages = allthings.filter((x) => x.get("name").includes(ownername) && x.get("name") != ownername && parseInt(x.get("name").split(/Page\s/)[1]) > parseInt(pageno));		
+		log(pages);		
+		pages.forEach((x) => {
+			let y = x.get("name");
+			let no = y.split(/Page\s/)[1];			
+			x.set("name",y.replace(no,(parseInt(no)-1).toString()));
+		})
+		//Delete Target Page/
+		pagetodel.remove();
+		//Send Ominous message
+			let q = deletemsg[Math.floor(Math.random() * deletemsg.length)];
+			sendChat("Nibiru",'&{template:quote} {{quote='+q.quote.replace("#CHARNAME#",ownername)+'}}'+((q.hasOwnProperty("by")) ? "{{by="+q.by+"}}" : ""));
+		}
+	}
+});
+
+on("chat:message", function(msg) {
+	if(msg.type === "api" && msg.content.indexOf("!givepage") !== -1) {
+		let msgtext = msg.content.slice(msg.content.indexOf(" ")+1).trim();
+		let options = msgtext.split("|");
+		log(options[1]);
+		//Select Character
+		let pagetodel = getObj("character",options[0]);
+		//Kujio Proofing.
+		if(pagetodel == undefined) { return; }	
+		let [ownername,pageno] = pagetodel.get("name").split(/\sJournal\sPage\s/);
+		log(ownername);
+		log(pageno);
+		if(options.length < 2) { 
+			let gallthings = findObjs({_type:"character"}).filter((x)=> !x.get("name").includes("Journal Page") && x.get("controlledby") != "" && !x.get("name").includes(ownername));
+			let append = ""
+			gallthings.forEach((x) => {
+				append += " ["+x.get("name")+"](!givepage "+options[0]+"|"+x.get("_id")+")";
+			});
+			sendChat("Nibiru","/w "+msg.who.replace(" (GM)","")+" To confirm your loss of memory, close the memory page, and then click the name of the person to whom you should send your memories..."+append); 
+		} else {		
+			let allthings = findObjs({_type:"character","controlledby":pagetodel.get("controlledby")}); 
+			log(allthings);
+			let character = allthings.filter((x) => x.get("name") == ownername)[0]; 
+			log(character);
+			let tocharacter = getObj("character",options[1]); 
+			log(tocharacter);
+			//Adjust character page number
+			let mempages = findObjs({_type:"attribute",_characterid:character.get("_id"),"name":"memorypages"})[0];
+			mempages.set("current",parseInt(mempages.get("current"))-1);
+			let newpages = findObjs({_type:"attribute",_characterid:options[1],"name":"memorypages"})[0];
+			if(newpages == undefined) { newpages = createObj("attribute", { _characterid:options[1], "name":"memorypages", "current":0}); }
+			newpages.set("current",parseInt(newpages.get("current"))+1);
+			log(mempages);
+			log(newpages);
+			//Renumber Pages
+			let pages = allthings.filter((x) => x.get("name").includes(ownername) && x.get("name") != ownername && parseInt(x.get("name").split(/Page\s/)[1]) > parseInt(pageno));		
+			log(pages);		
+			pages.forEach((x) => {
+				let y = x.get("name");
+				let no = y.split(/Page\s/)[1];			
+				x.set("name",y.replace(no,(parseInt(no)-1).toString()));
+			})
+			//Transfer Target Page
+			pagetodel.set("controlledby",tocharacter.get("controlledby"));
+			pagetodel.set("name",tocharacter.get("name")+" Journal Page "+newpages.get("current"));
+			//Send Ominous message
+			let q = transfermsg[Math.floor(Math.random() * transfermsg.length)];
+			sendChat("Nibiru",'&{template:quote} {{quote='+q.quote.replace("#CHARNAME#",ownername).replace("#CHARNAME2#",tocharacter.get("name"))+'}}'+((q.hasOwnProperty("by")) ? "{{by="+q.by+"}}" : ""));
+		}
+	}
+});
+
+let transfermsg = [
+	{quote: "As breath on the wind, so too are memories, drifting from soul to soul..."},
+	{quote: "Another's thoughts pressing through #CHARNAME#'s mind. Not anymore. Home they go, seeking their new place. Or is it their old place?"},
+	{quote: "These memories, they were not mine; instead perhaps, art they thine?"}
+];
+let deletemsg = [
+{quote: "Like sand through fingertips, memories slip from #CHARNAME#'s grasp..."},
+{quote: "False memories are but chaff to be discarded. But what will fill their place?"},
+{quote: "Take a man’s memories and you take all of him. Chip away a memory at a time and you destroy him as surely as if you hammered nail after nail through his skull.",by: "Mark Lawrence"},
+{quote: "What are we but our memories? What do we become if we lose them?"}
+];
