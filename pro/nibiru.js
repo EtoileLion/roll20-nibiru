@@ -114,6 +114,8 @@ on("chat:message", function(msg) {
 		      "name":"sheettype",
 		      "current":"journal"
 		  });
+		  let q = addmsg[Math.floor(Math.random() * addmsg.length)];
+			sendChat("Nibiru",'&{template:quote} {{quote='+q.quote.replace("#CHARNAME#",character.get("name"))+'}}'+((q.hasOwnProperty("by")) ? "{{by="+q.by+"}}" : ""));		  
 	}
 });
 
@@ -205,15 +207,23 @@ on("chat:message", function(msg) {
 		}
 	}
 });
-
+let addmsg = [
+{quote: "Forbidden to remember, terrified to forget; it was a hard line to walk.", by:"Stephanie Meyer, 'New Moon'"},
+{quote: "The advantage of a bad memory is that one enjoys several times the same good things for the first time.", by: "Friedrich Nietzsche"},
+{quote: "Remember tonight... for it is the beginning of always.", by: "Dante Alighieri"},
+	{quote: "The birth of memory; an event so wonderful it is to be admired just for its very existance."}
+];
 let transfermsg = [
 	{quote: "As breath on the wind, so too are memories, drifting from soul to soul..."},
 	{quote: "Another's thoughts pressing through #CHARNAME#'s mind. Not anymore. Home they go, seeking their new place. Or is it their old place?"},
-	{quote: "These memories, they were not mine; instead perhaps, art they thine?"}
+	{quote: "These memories, they were not mine; instead perhaps, art they thine?", by:"Unknown"},
+		{quote: "'Time's the thief of memory.' Sometimes, Time takes a more tangible form.", by:"Stephen King, 'The Gunslinger', Unknown"}
 ];
 let deletemsg = [
 {quote: "Like sand through fingertips, memories slip from #CHARNAME#'s grasp..."},
 {quote: "False memories are but chaff to be discarded. But what will fill their place?"},
 {quote: "Take a man’s memories and you take all of him. Chip away a memory at a time and you destroy him as surely as if you hammered nail after nail through his skull.",by: "Mark Lawrence"},
-{quote: "What are we but our memories? What do we become if we lose them?"}
+{quote: "What are we but our memories? What do we become if we lose them?"},
+{quote: "If you tell the truth, you don't have to remember anything.", by:"Mark Twain"},
+{quote: "If you wish to forget anything on the spot, make a note that this thing is to be remembered.", by:"Edgar Allan Poe"}
 ];
